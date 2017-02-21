@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var jasmine = require('gulp-jasmine');
+var cliParams = require('./cli-params.json' )
 
 var electron = require('electron-connect').server.create( 
     {
@@ -37,7 +38,7 @@ gulp.task('reload', function() {
 
 gulp.task('serve', function () {
 
-    electron.start( {}, callback );
+    electron.start( cliParams, callback );
 
     gulp.watch('./sass/**/*.sass', ['sass']);
 

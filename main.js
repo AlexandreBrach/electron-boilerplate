@@ -4,9 +4,15 @@ let DEV = process.env.DEV
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
+
 if( DEV ) {
     var client = require('electron-connect').client;
 }
+
+// parse cli parameter
+var cliArgs = require( './js/cli-arguments.js' )
+cliArgs.init( process.argv )
+global.cliArgs = cliArgs
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
